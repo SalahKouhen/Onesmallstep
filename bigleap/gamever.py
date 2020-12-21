@@ -10,7 +10,13 @@ gameDispaly = pygame.display.set_mode((display_width,dispaly_height))
 pygame.display.set_caption("One small step")
 clock = pygame.time.Clock()
 
-stickman = pygame.image.load()
+stickmanimg = pygame.image.load("stickMan.png")
+
+def stickman(x,y):
+    gameDispaly.blit(stickmanimg,(x,y))
+
+x =  (display_width * 0.45)
+y = (display_height * 0.8)
 
 crashed = False
 
@@ -19,6 +25,9 @@ while not crashed:
         if event.type == pygame.QUIT:
             crashed = True       
         print(event)
+
+    gameDispaly.fill(white)
+    stickman(x,y)
 
     pygame.display.flip
     clock.tick(60)
